@@ -22,6 +22,13 @@
 
 # ⚠️ Apresentação do Problema 
 
+<p align="center">
+<img src="imgs/main.png" width="600"/> 
+</p>
+<p align="center">
+<em>Imagem 1: Imagem ilustrativa do agente reativo simples que será implementado. </em>
+</p>
+
 <div align="justify">
 Implemente um agente inteligente para o mundo do aspirador de pó no qual o agente possui um sensor de sujeira e um método `suck`. Considerações: 
     
