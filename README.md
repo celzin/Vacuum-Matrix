@@ -25,7 +25,7 @@
 # ⚠️ Apresentação do Problema 
 
 <p align="center">
-<img src="imgs/main2.png" width="600"/> 
+<img src="imgs/main2.png" width="450"/> 
 </p>
 <p align="center">
 <em>Imagem 1: Imagem ilustrativa do agente reativo simples que será implementado. </em>
