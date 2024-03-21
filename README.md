@@ -23,9 +23,35 @@
 # ⚠️ Apresentação do Problema 
 
 <div align="justify">
+Implemente um agente inteligente para o mundo do aspirador de pó no qual o agente possui um sensor de sujeira e um método `suck`. Considerações: 
+    
+    1. O agente implementado será avaliado em um abiente de matriz NxN, inicialmente 4x4, porém o tamanho do ambiente e deve ser flexível para uso em outras dimensões.
+    
+    2. O agente não sabe a disposição da sujeira nem mesmo o tamanho do ambiente.
+    
+    3. O agente é iniciado em um local aleatório a cada experimento.
+    
+    4. O agente pode se movimentar para direita, esquerda, cima e para baixo.
+    
+    5. O agente pode armazenar o estado de até 3 movimentos realizados. No entanto, ele não pode armazenar sua localização.
+    
+    6. Após ser realizada a limpeza, o ambiente não volta a ficar sujo.
 
+    7. Se bater na parede o agente deve fazer um movimento pseudo-aleatório. Ele pode usar as informações dos estados anteriores para fazer esse movimento.
+    
+    8. A disposição do local de sujeira deve ser gerada de forma aleatória antes de iniciar o agente. Porém, as configurações de quantidade serão as seguintes:
+        - Configurações: 16 quadrados sujos, 12 quadrados sujos, 8 quadrados sujos e 4 quadrados sujos.
+    
+    9. Registre a pontuação do Aspirador:
+        - +3 pontos para cada ambiente limpo;
+        - -1 ponto para cada movimento;
+        - -20 pontos para cada quadrado sujo remanescente após o término da limpeza;
 
+    10. O Critério de parada do agente deve ser definido pelo aluno.
 
+    11. Para experimentação, deve-se executar 10 repetições de cada configuração e apresentar o melhor resultado, o pior, a média e o desvio padrão.
+    
+A intenção global do problema não é encontrar uma saída, mas sim, tentar deixar o ambiente limpo e obter uma pontuação razoável ou "morrer tentando".
 </div>
 
 # 💡 Solução do Problema 
