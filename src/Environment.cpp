@@ -1,5 +1,3 @@
-// environment.cpp
-
 #include "include/Environment.hpp"
 
 Environment::Environment(const std::string &file_path) {

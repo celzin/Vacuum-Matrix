@@ -1,5 +1,3 @@
-// agent.cpp
-
 #include "include/Agent.hpp"
 #include <cstdlib>
 #include <ctime>
