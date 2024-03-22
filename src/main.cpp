@@ -24,7 +24,7 @@ int main() {
 
         // Executa até que o número máximo de movimentos seja atingido
         for (int step = 0; step < max_moves; ++step) {
-            agent.Act(); // Agente executa uma ação
+            agent.Act(actions_log); // Agente executa uma ação
             total_moves++;
 
             int current_x = agent.GetCurrentX();
@@ -46,7 +46,7 @@ int main() {
             agent.UpdateScore(-1); // perde 1 ponto para cada movimento
 
             // Log da ação atual
-            actions_log.push_back("Move " + std::to_string(total_moves) + ": (" + std::to_string(current_x) + ", " + std::to_string(current_y) + ")");
+            actions_log.push_back("Mov Atual " + std::to_string(total_moves) + ": (" + std::to_string(current_x) + ", " + std::to_string(current_y) + ")");
         }
 
         // Calcula as sujeiras remanescentes usando o método apropriado da classe Environment

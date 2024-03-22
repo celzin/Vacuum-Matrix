@@ -10,7 +10,7 @@ class Agent {
 public:
     Agent(Environment &env);
 
-    void Act();
+    void Act(std::vector<std::string> &log);
     void UpdatePosition(int x, int y);
     void CleanCurrentPosition();
     void UpdateScore(int points);
