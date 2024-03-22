@@ -62,7 +62,7 @@ int main() {
         output_file.close();
 
         // Cálculo da pontuação final e geração do arquivo relatorio.data
-        std::ofstream report_file("relatorio.data");
+        std::ofstream report_file("dataset/relatorio.data");
         report_file << "A) Casas percorridas: " << squares_explored << "\n";
         report_file << "B) Casas não exploradas: " << (environment.GetSize() * environment.GetSize()) - squares_explored << "\n";
         report_file << "C) Sujeiras limpas: " << cleaned_squares << "\n";
