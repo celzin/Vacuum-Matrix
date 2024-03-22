@@ -1,165 +1,161 @@
-Limpou em (3, 2)
-1 1 0 1 
-1 0 0 0 
-0 1 0 0 
-1 0 X 0 
-
-
-Mov Atual 1: (3, 2)
-Colisão com parede ao tentar mover para (4, 2)
-Colisão com parede ao tentar mover para (4, 2)Move para (3, 3)
-1 1 0 1 
-1 0 0 0 
-0 1 0 0 
-1 0 0 X 
-
-
-Mov Atual 2: (3, 3)
-Colisão com parede ao tentar mover para (3, 4)
-Colisão com parede ao tentar mover para (3, 4)Move para (2, 3)
-1 1 0 1 
-1 0 0 0 
-0 1 0 X 
-1 0 0 0 
-
-
-Mov Atual 3: (2, 3)
-Move para (1, 3)
-1 1 0 1 
-1 0 0 X 
-0 1 0 0 
-1 0 0 0 
-
-
-Mov Atual 4: (1, 3)
-Move para (2, 3)
-1 1 0 1 
-1 0 0 0 
-0 1 0 X 
-1 0 0 0 
-
-
-Mov Atual 5: (2, 3)
-Move para (2, 2)
-1 1 0 1 
-1 0 0 0 
-0 1 X 0 
-1 0 0 0 
-
-
-Mov Atual 6: (2, 2)
-Move para (2, 3)
-1 1 0 1 
-1 0 0 0 
-0 1 0 X 
-1 0 0 0 
-
-
-Mov Atual 7: (2, 3)
-Colisão com parede ao tentar mover para (2, 4)
-Colisão com parede ao tentar mover para (2, 4)
-Colisão com parede ao tentar mover para (2, 4)Move para (1, 3)
-1 1 0 1 
-1 0 0 X 
-0 1 0 0 
-1 0 0 0 
-
-
-Mov Atual 8: (1, 3)
-Move para (0, 3)
-1 1 0 X 
-1 0 0 0 
-0 1 0 0 
-1 0 0 0 
-
-
-Mov Atual 9: (0, 3)
 Limpou em (0, 3)
 1 1 0 X 
 1 0 0 0 
 0 1 0 0 
-1 0 0 0 
+1 0 1 0 
 
 
-Mov Atual 10: (0, 3)
+Mov Atual 1: (0, 3)
+Colisão com parede ao tentar mover para (0, 4)
 Move para (0, 2)
 1 1 X 0 
 1 0 0 0 
 0 1 0 0 
-1 0 0 0 
+1 0 1 0 
 
 
-Mov Atual 11: (0, 2)
+Mov Atual 2: (0, 2)
 Move para (1, 2)
 1 1 0 0 
 1 0 X 0 
 0 1 0 0 
-1 0 0 0 
+1 0 1 0 
 
 
-Mov Atual 12: (1, 2)
-Move para (2, 2)
-1 1 0 0 
-1 0 0 0 
-0 1 X 0 
-1 0 0 0 
-
-
-Mov Atual 13: (2, 2)
-Move para (2, 3)
-1 1 0 0 
-1 0 0 0 
-0 1 0 X 
-1 0 0 0 
-
-
-Mov Atual 14: (2, 3)
-Move para (3, 3)
-1 1 0 0 
+Mov Atual 3: (1, 2)
+Move para (0, 2)
+1 1 X 0 
 1 0 0 0 
 0 1 0 0 
-1 0 0 X 
+1 0 1 0 
 
 
-Mov Atual 15: (3, 3)
-Colisão com parede ao tentar mover para (4, 3)
-Colisão com parede ao tentar mover para (4, 3)Move para (3, 2)
-1 1 0 0 
+Mov Atual 4: (0, 2)
+Move para (0, 3)
+1 1 0 X 
 1 0 0 0 
 0 1 0 0 
+1 0 1 0 
+
+
+Mov Atual 5: (0, 3)
+Move para (0, 2)
+1 1 X 0 
+1 0 0 0 
+0 1 0 0 
+1 0 1 0 
+
+
+Mov Atual 6: (0, 2)
+Move para (1, 2)
+1 1 0 0 
 1 0 X 0 
+0 1 0 0 
+1 0 1 0 
 
 
-Mov Atual 16: (3, 2)
-Move para (2, 2)
+Mov Atual 7: (1, 2)
+Move para (0, 2)
+1 1 X 0 
+1 0 0 0 
+0 1 0 0 
+1 0 1 0 
+
+
+Mov Atual 8: (0, 2)
+Move para (0, 3)
+1 1 0 X 
+1 0 0 0 
+0 1 0 0 
+1 0 1 0 
+
+
+Mov Atual 9: (0, 3)
+Move para (0, 2)
+1 1 X 0 
+1 0 0 0 
+0 1 0 0 
+1 0 1 0 
+
+
+Mov Atual 10: (0, 2)
+Move para (1, 2)
 1 1 0 0 
-1 0 0 0 
-0 1 X 0 
-1 0 0 0 
+1 0 X 0 
+0 1 0 0 
+1 0 1 0 
 
 
-Mov Atual 17: (2, 2)
-Move para (2, 1)
+Mov Atual 11: (1, 2)
+Move para (0, 2)
+1 1 X 0 
+1 0 0 0 
+0 1 0 0 
+1 0 1 0 
+
+
+Mov Atual 12: (0, 2)
+Move para (0, 3)
+1 1 0 X 
+1 0 0 0 
+0 1 0 0 
+1 0 1 0 
+
+
+Mov Atual 13: (0, 3)
+Move para (0, 2)
+1 1 X 0 
+1 0 0 0 
+0 1 0 0 
+1 0 1 0 
+
+
+Mov Atual 14: (0, 2)
+Move para (1, 2)
 1 1 0 0 
-1 0 0 0 
-0 X 0 0 
-1 0 0 0 
+1 0 X 0 
+0 1 0 0 
+1 0 1 0 
 
 
-Mov Atual 18: (2, 1)
-Limpou em (2, 1)
+Mov Atual 15: (1, 2)
+Move para (0, 2)
+1 1 X 0 
+1 0 0 0 
+0 1 0 0 
+1 0 1 0 
+
+
+Mov Atual 16: (0, 2)
+Move para (0, 3)
+1 1 0 X 
+1 0 0 0 
+0 1 0 0 
+1 0 1 0 
+
+
+Mov Atual 17: (0, 3)
+Move para (0, 2)
+1 1 X 0 
+1 0 0 0 
+0 1 0 0 
+1 0 1 0 
+
+
+Mov Atual 18: (0, 2)
+Move para (1, 2)
 1 1 0 0 
+1 0 X 0 
+0 1 0 0 
+1 0 1 0 
+
+
+Mov Atual 19: (1, 2)
+Move para (0, 2)
+1 1 X 0 
 1 0 0 0 
-0 X 0 0 
-1 0 0 0 
+0 1 0 0 
+1 0 1 0 
 
 
-Mov Atual 19: (2, 1)
-Move para (3, 1)
-1 1 0 0 
-1 0 0 0 
-0 0 0 0 
-1 X 0 0 
-
-
-Mov Atual 20: (3, 1)
+Mov Atual 20: (0, 2)

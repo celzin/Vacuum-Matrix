@@ -12,6 +12,7 @@ public:
 
     void Act(std::vector<std::string> &log);
     void UpdatePosition(int x, int y);
+    void UpdateMemory(int dx, int dy); // Nova
     void CleanCurrentPosition();
     void UpdateScore(int points);
     int GetCurrentX() const;

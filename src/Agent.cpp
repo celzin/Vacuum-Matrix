@@ -37,27 +37,34 @@ void Agent::Act(std::vector<std::string> &log) {
         CleanCurrentPosition();
         logEntry << "Limpou em (" << current_x << ", " << current_y << ")";
         log.push_back(logEntry.str());
+        UpdateMemory(0, 0); // Representa ação de limpeza sem deslocamento
     } else {
-        bool moved = false;
-        for (int attempts = 0; attempts < 4 && !moved; ++attempts) {
-            int dir = std::rand() % 4; // Escolhe direção aleatória
-            int new_x = current_x, new_y = current_y;
+        std::vector<std::pair<int, int>> directions = { {-1, 0}, {0, 1}, {1, 0}, {0, -1} }; // Cima, Direita, Baixo, Esquerda
+        std::random_shuffle(directions.begin(), directions.end()); // Mistura as direções para aleatoriedade
 
-            // Atualiza new_x e new_y com base na direção
-            switch (dir) {
-            case 0: new_x--; break; // Cima
-            case 1: new_y++; break; // Direita
-            case 2: new_x++; break; // Baixo
-            case 3: new_y--; break; // Esquerda
+        bool moved = false;
+        for (auto &dir : directions) {
+            int dx = dir.first, dy = dir.second;
+
+            // Verifica se este deslocamento foi realizado recentemente
+            if (std::find(memory.begin(), memory.end(), std::make_pair(dx, dy)) != memory.end()) {
+                continue; // Pula este deslocamento se foi um dos últimos três realizados
             }
 
-            // Checa se o novo movimento é válido
+            int new_x = current_x + dx;
+            int new_y = current_y + dy;
+
+            // Checa se o novo movimento é válido e não resulta em colisão com a parede
             if (new_x >= 0 && new_x < environment.GetSize() && new_y >= 0 && new_y < environment.GetSize()) {
-                UpdatePosition(new_x, new_y);
+                UpdatePosition(dx, dy); // Atualiza a posição baseada no deslocamento
                 moved = true;
+                logEntry.str(""); // Limpa o stringstream
                 logEntry << "Move para (" << new_x << ", " << new_y << ")";
                 log.push_back(logEntry.str());
+                break; // Sai do loop após um movimento bem-sucedido
             } else {
+                // Registra a tentativa de movimento que resultaria em colisão
+                UpdateMemory(dx, dy); // Atualiza a memória com o deslocamento tentado
                 logEntry.str(""); // Limpa o stringstream
                 logEntry << "Colisão com parede ao tentar mover para (" << new_x << ", " << new_y << ")";
                 log.push_back(logEntry.str());
@@ -70,15 +77,20 @@ void Agent::Act(std::vector<std::string> &log) {
     }
 }
 
-void Agent::UpdatePosition(int x, int y) {
-    // Atualiza a memória do agente com o movimento mais recente
-    memory[2] = memory[1];
-    memory[1] = memory[0];
-    memory[0] = { current_x, current_y };
-
+void Agent::UpdatePosition(int dx, int dy) {
     // Atualiza a posição atual do agente
-    current_x = x;
-    current_y = y;
+    current_x += dx;
+    current_y += dy;
+
+    // Atualiza a memória do agente com o movimento mais recente como deslocamento
+    std::rotate(memory.rbegin(), memory.rbegin() + 1, memory.rend());
+    memory[0] = { dx, dy };
+}
+
+void Agent::UpdateMemory(int dx, int dy) {
+    // Semelhante à lógica em UpdatePosition, mas sem alterar as coordenadas do agente
+    std::rotate(memory.rbegin(), memory.rbegin() + 1, memory.rend());
+    memory[0] = { dx, dy };
 }
 
 void Agent::CleanCurrentPosition() {
