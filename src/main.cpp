@@ -52,9 +52,11 @@ int main() {
         // Calcula as sujeiras remanescentes usando o método apropriado da classe Environment
         int remaining_dirty_squares = environment.CountRemainingDirtySquares();
 
-        // Calcula os pontos perdidos devido a movimentos e sujeiras remanescentes
-        int points_lost = total_moves + (remaining_dirty_squares * 20); // Calcula apenas uma vez
-        int final_score = agent.GetScore() - points_lost; // Calcula apenas uma vez
+        // Supondo que 'total_moves' é o número total de movimentos feitos pelo agente
+        int points_lost_due_to_moves = total_moves; // 1 ponto perdido por cada movimento
+        int points_lost_due_to_dirt = remaining_dirty_squares * 20; // Penalidade por sujeiras remanescentes
+        int clean_score = (cleaned_squares * 3);
+        int final_score = (cleaned_squares * 3) - points_lost_due_to_moves - points_lost_due_to_dirt;
 
         // Geração do arquivo output.data com o log das ações do agente
         std::ofstream output_file("dataset/output.data");
@@ -68,8 +70,9 @@ int main() {
         report_file << "A) Casas percorridas: " << squares_explored << "\n";
         report_file << "B) Casas não exploradas: " << (environment.GetSize() * environment.GetSize()) - squares_explored << "\n";
         report_file << "C) Sujeiras limpas: " << cleaned_squares << "\n";
-        report_file << "D) Pontos ganhos: " << agent.GetScore() << "\n";
-        report_file << "E) Pontos perdidos: " << points_lost << "\n";
+        report_file << "D) Pontos ganhos: " << clean_score << "\n";
+        report_file << "E) Penalidades por movimento: " << points_lost_due_to_moves << "\n";
+        report_file << "E) Penalidades por sujeira remanescente: " << points_lost_due_to_dirt << "\n";
         report_file << "F) Pontuação Final: " << final_score << "\n";
         report_file.close();
 
