@@ -20,6 +20,7 @@ public:
     void Clean(int x, int y);
     int GetSize() const;
     int CountRemainingDirtySquares() const;
+    int GetValueAt(int x, int y) const;
 
 private:
     std::vector<std::vector<int>> grid;

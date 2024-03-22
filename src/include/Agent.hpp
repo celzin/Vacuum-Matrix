@@ -13,10 +13,11 @@ public:
     void Act();
     void UpdatePosition(int x, int y);
     void CleanCurrentPosition();
+    void UpdateScore(int points);
     int GetCurrentX() const;
     int GetCurrentY() const;
     int GetScore() const;
-    void UpdateScore(int points);
+    std::string LogCurrentState() const; // Novo método
 
 private:
     Environment &environment;

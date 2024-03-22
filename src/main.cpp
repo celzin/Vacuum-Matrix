@@ -29,6 +29,8 @@ int main() {
 
             int current_x = agent.GetCurrentX();
             int current_y = agent.GetCurrentY();
+            std::string currentState = agent.LogCurrentState(); // Obtém o estado atual
+            actions_log.push_back(currentState); // Adiciona ao log
 
             // Atualiza a contagem de quadrados limpos
             if (!explored[current_x][current_y]) {

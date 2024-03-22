@@ -71,3 +71,19 @@ void Agent::UpdatePosition(int x, int y) {
 void Agent::CleanCurrentPosition() {
     environment.Clean(current_x, current_y);
 }
+
+std::string Agent::LogCurrentState() const {
+    std::stringstream ss;
+    for (int i = 0; i < environment.GetSize(); ++i) {
+        for (int j = 0; j < environment.GetSize(); ++j) {
+            if (i == current_x && j == current_y) {
+                ss << "X "; // Marca a posição do agente
+            } else {
+                ss << environment.GetValueAt(i, j) << " "; // Usa GetValueAt para obter o valor
+            }
+        }
+        ss << "\n";
+    }
+    ss << "\n"; // Espaço extra entre estados para melhor visualização
+    return ss.str();
+}

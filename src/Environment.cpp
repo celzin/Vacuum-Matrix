@@ -52,3 +52,11 @@ int Environment::CountRemainingDirtySquares() const {
     }
     return count;
 }
+
+int Environment::GetValueAt(int x, int y) const {
+    if (x >= 0 && x < size && y >= 0 && y < size) {
+        return grid[x][y];
+    } else {
+        return -1; // Retorna -1 ou outro valor de erro se as coordenadas estiverem fora dos limites
+    }
+}
