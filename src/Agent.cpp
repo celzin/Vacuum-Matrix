@@ -1,112 +1,68 @@
-#include "include/Agent.hpp"
-#include <cstdlib>
-#include <ctime>
-#include <sstream> // Necessário para usar o stringstream
+#include "include/Utility.hpp"
+#include <fstream>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <numeric>
+#include <algorithm>
+#include <cmath>
 
-Agent::Agent(Environment &env)
-    : environment(env), current_x(0), current_y(0) {
-    // Inicializa o gerador de números aleatórios
-    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+void ExecuteSimulation(const std::string &inputFilePath, int maxMoves) {
+    Environment environment(inputFilePath);
+    Agent agent(environment);
+    std::vector<std::string> actions_log;
+    std::vector<std::vector<bool>> explored(environment.GetSize(), std::vector<bool>(environment.GetSize(), false));
+    int total_moves = 0;
+    int cleaned_squares = 0;
+    int squares_explored = 0;
 
-    // Define a posição inicial aleatória do agente
-    current_x = std::rand() % environment.GetSize();
-    current_y = std::rand() % environment.GetSize();
-}
+    for (int step = 0; step < maxMoves; ++step) {
+        agent.Act(actions_log);
+        total_moves++;
 
-int Agent::GetCurrentX() const {
-    return current_x;
-}
-
-int Agent::GetCurrentY() const {
-    return current_y;
-}
-
-int Agent::GetScore() const {
-    return score;
-}
-
-void Agent::UpdateScore(int points) {
-    score += points;
-}
-
-void Agent::Act(std::vector<std::string> &log) {
-    std::stringstream logEntry;
-    if (environment.IsDirty(current_x, current_y)) {
-        CleanCurrentPosition();
-        logEntry << "Limpou em (" << current_x << ", " << current_y << ")";
-        log.push_back(logEntry.str());
-        UpdateMemory(0, 0); // Representa ação de limpeza sem deslocamento
-    } else {
-        std::vector<std::pair<int, int>> directions = { {-1, 0}, {0, 1}, {1, 0}, {0, -1} }; // Cima, Direita, Baixo, Esquerda
-        std::random_shuffle(directions.begin(), directions.end()); // Mistura as direções para aleatoriedade
-
-        bool moved = false;
-        for (auto &dir : directions) {
-            int dx = dir.first, dy = dir.second;
-
-            // Verifica se este deslocamento foi realizado recentemente
-            if (std::find(memory.begin(), memory.end(), std::make_pair(dx, dy)) != memory.end()) {
-                continue; // Pula este deslocamento se foi um dos últimos três realizados
-            }
-
-            int new_x = current_x + dx;
-            int new_y = current_y + dy;
-
-            // Checa se o novo movimento é válido e não resulta em colisão com a parede
-            if (new_x >= 0 && new_x < environment.GetSize() && new_y >= 0 && new_y < environment.GetSize()) {
-                UpdatePosition(dx, dy); // Atualiza a posição baseada no deslocamento
-                moved = true;
-                logEntry.str(""); // Limpa o stringstream
-                logEntry << "Move para (" << new_x << ", " << new_y << ")";
-                log.push_back(logEntry.str());
-                break; // Sai do loop após um movimento bem-sucedido
-            } else {
-                // Registra a tentativa de movimento que resultaria em colisão
-                UpdateMemory(dx, dy); // Atualiza a memória com o deslocamento tentado
-                logEntry.str(""); // Limpa o stringstream
-                logEntry << "Colisão com parede ao tentar mover para (" << new_x << ", " << new_y << ")";
-                log.push_back(logEntry.str());
+        // Logica para atualizar o estado explorado e a contagem de sujeira
+        int current_x = agent.GetCurrentX();
+        int current_y = agent.GetCurrentY();
+        if (!explored[current_x][current_y]) {
+            squares_explored++;
+            explored[current_x][current_y] = true;
+            if (environment.IsDirty(current_x, current_y)) {
+                cleaned_squares++;
+                std::cout << cleaned_squares << std::endl;
+                environment.Clean(current_x, current_y);
+                agent.UpdateScore(3); // Ganha 3 pontos para cada ambiente limpo
             }
         }
-
-        if (!moved) {
-            log.push_back("Agent preso, sem movimentos válidos.");
-        }
+        agent.UpdateScore(-1); // Perde 1 ponto para cada movimento
+        actions_log.push_back(agent.LogCurrentState()); // Estado atual após ação
     }
+
+    GenerateReports(actions_log, total_moves, cleaned_squares, squares_explored, environment);
 }
 
-void Agent::UpdatePosition(int dx, int dy) {
-    // Atualiza a posição atual do agente
-    current_x += dx;
-    current_y += dy;
-
-    // Atualiza a memória do agente com o movimento mais recente como deslocamento
-    std::rotate(memory.rbegin(), memory.rbegin() + 1, memory.rend());
-    memory[0] = { dx, dy };
-}
-
-void Agent::UpdateMemory(int dx, int dy) {
-    // Semelhante à lógica em UpdatePosition, mas sem alterar as coordenadas do agente
-    std::rotate(memory.rbegin(), memory.rbegin() + 1, memory.rend());
-    memory[0] = { dx, dy };
-}
-
-void Agent::CleanCurrentPosition() {
-    environment.Clean(current_x, current_y);
-}
-
-std::string Agent::LogCurrentState() const {
-    std::stringstream ss;
-    for (int i = 0; i < environment.GetSize(); ++i) {
-        for (int j = 0; j < environment.GetSize(); ++j) {
-            if (i == current_x && j == current_y) {
-                ss << "X "; // Marca a posição do agente
-            } else {
-                ss << environment.GetValueAt(i, j) << " "; // Usa GetValueAt para obter o valor
-            }
-        }
-        ss << "\n";
+void GenerateReports(const std::vector<std::string> &actions_log, const int total_moves, const int cleaned_squares, const int squares_explored, const Environment &environment) {
+    std::ofstream output_file("dataset/output.data");
+    for (const auto &action : actions_log) {
+        output_file << action << "\n";
     }
-    ss << "\n"; // Espaço extra entre estados para melhor visualização
-    return ss.str();
+    output_file.close();
+
+    int remaining_dirty_squares = environment.CountRemainingDirtySquares();
+    int environment_size = environment.GetSize() * environment.GetSize();
+    int points_lost_due_to_moves = total_moves;
+    int points_lost_due_to_dirt = remaining_dirty_squares * 20;
+    int clean_score = cleaned_squares * 3;
+    int final_score = clean_score - points_lost_due_to_moves - points_lost_due_to_dirt;
+
+    std::ofstream report_file("dataset/relatorio.data");
+    report_file << "A) Casas percorridas: " << squares_explored << "\n";
+    report_file << "B) Casas não exploradas: " << environment_size - squares_explored << "\n";
+    report_file << "C) Sujeiras limpas: " << cleaned_squares << "\n";
+    report_file << "D) Pontos ganhos: " << clean_score << "\n";
+    report_file << "E) Penalidades por movimento: " << points_lost_due_to_moves << "\n";
+    report_file << "F) Penalidades por sujeira remanescente: " << points_lost_due_to_dirt << "\n";
+    report_file << "G) Pontuação Final: " << final_score << "\n";
+    report_file.close();
+
+    // std::cout << "Execução finalizada. Verifique os arquivos de saída." << std::endl;
 }

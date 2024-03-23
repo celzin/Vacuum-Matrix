@@ -1,13 +1,12 @@
 #ifndef UTILITY_HPP
 #define UTILITY_HPP
 
-#include "Environment.hpp" // Ajuste o caminho conforme necessário
-#include "Agent.hpp" // Ajuste o caminho conforme necessário
-#include <vector>
+#include "Environment.hpp"
+#include "Agent.hpp"
 #include <string>
+#include <vector>
 
-void ExecuteAgent(Environment &environment, Agent &agent, std::vector<std::string> &actions_log, int max_moves);
+void ExecuteSimulation(const std::string &inputFilePath, int maxMoves);
+void GenerateReports(const std::vector<std::string> &actions_log, const int total_moves, const int cleaned_squares, const int squares_explored, const Environment &environment);
 
-void GenerateReports(const std::vector<std::string> &actions_log, const Environment &environment, const Agent &agent);
-
-#endif
+#endif 
