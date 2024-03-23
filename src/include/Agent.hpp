@@ -1,5 +1,3 @@
-// agent.hpp
-
 #ifndef AGENT_HPP
 #define AGENT_HPP
 
@@ -27,4 +25,4 @@ private:
     std::array<std::pair<int, int>, 3> memory; // Memória dos últimos 3 movimentos
 };
 
-#endif // AGENT_HPP
+#endif 

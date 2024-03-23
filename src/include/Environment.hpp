@@ -1,5 +1,3 @@
-// environment.hpp
-
 #ifndef ENVIRONMENT_HPP
 #define ENVIRONMENT_HPP
 
@@ -27,4 +25,4 @@ private:
     int size;
 };
 
-#endif // ENVIRONMENT_HPP
+#endif 
