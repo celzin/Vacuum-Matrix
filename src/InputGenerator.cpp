@@ -1,8 +1,7 @@
 #include "include/InputGenerator.hpp"
 
-// Definindo constantes para tamanho da matriz e porcentagem de sujeira
 const int N = 4; // Tamanho da matriz NxN
-const float DIRT_PERCENTAGE = 0.5; // 50% dos quadrados sujos
+const float DIRT_PERCENTAGE = 1.0; // 50% dos quadrados sujos
 
 void GenerateInputData() {
     int totalSquares = N * N;

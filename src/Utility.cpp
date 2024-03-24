@@ -8,6 +8,11 @@ void ExecuteAgent(Environment &environment, Agent &agent, std::vector<std::strin
     int squares_explored = 0;
     std::vector<std::vector<bool>> explored(environment.GetSize(), std::vector<bool>(environment.GetSize(), false));
 
+    // Verifica e contabiliza a limpeza inicial se o agente começar em uma posição suja.
+    if (environment.IsDirty(agent.GetCurrentX(), agent.GetCurrentY())) {
+        cleaned_squares++;
+    }
+
     for (int step = 0; step < max_moves; ++step) {
         agent.Act(actions_log);
         total_moves++;
