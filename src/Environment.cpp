@@ -1,5 +1,3 @@
-// environment.cpp
-
 #include "include/Environment.hpp"
 
 Environment::Environment(const std::string &file_path) {
@@ -12,8 +10,11 @@ void Environment::LoadFromFile(const std::string &file_path) {
         throw std::runtime_error("Unable to open the file: " + file_path);
     }
 
-    file >> size; // Assume que a primeira linha contém o tamanho da matriz.
-    grid.resize(size, std::vector<int>(size, 0));
+    int sizeX, sizeY; // Variáveis para ler as dimensões da matriz
+    file >> sizeX >> sizeY; // Lê ambas as dimensões da matriz
+    size = sizeX; // Aqui estamos assumindo uma matriz NxN, então usamos apenas uma dimensão
+
+    grid.resize(size, std::vector<int>(size));
 
     for (int i = 0; i < size; ++i) {
         for (int j = 0; j < size; ++j) {

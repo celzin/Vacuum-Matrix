@@ -1,5 +1,3 @@
-// agent.hpp
-
 #ifndef AGENT_HPP
 #define AGENT_HPP
 
@@ -10,8 +8,9 @@ class Agent {
 public:
     Agent(Environment &env);
 
-    void Act();
+    void Act(std::vector<std::string> &log);
     void UpdatePosition(int x, int y);
+    void UpdateMemory(int dx, int dy); // Nova
     void CleanCurrentPosition();
     void UpdateScore(int points);
     int GetCurrentX() const;
@@ -26,4 +25,4 @@ private:
     std::array<std::pair<int, int>, 3> memory; // Memória dos últimos 3 movimentos
 };
 
-#endif // AGENT_HPP
+#endif 
