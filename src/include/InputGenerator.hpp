@@ -8,4 +8,4 @@
 
 void GenerateInputData();
 
-#endif // INPUTDATAGENERATOR_HPP
+#endif 

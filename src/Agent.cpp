@@ -1,7 +1,7 @@
 #include "include/Agent.hpp"
 #include <cstdlib>
 #include <ctime>
-#include <sstream> // Necessário para usar o stringstream
+#include <sstream>
 
 Agent::Agent(Environment &env)
     : environment(env), current_x(0), current_y(0) {
