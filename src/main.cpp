@@ -1,11 +1,13 @@
 #include "include/Environment.hpp"
 #include "include/Agent.hpp"
 #include "include/Utility.hpp"
+#include "include/InputGenerator.hpp"
 #include <iostream>
 #include <vector>
 #include <string>
 
 int main() {
+    GenerateInputData();
     try {
         Environment environment("dataset/input.data");
         Agent agent(environment);

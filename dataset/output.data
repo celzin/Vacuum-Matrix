@@ -1,160 +1,161 @@
-Move para (2, 2)
-1 1 0 1 
-1 0 0 0 
-0 1 X 0 
+Limpou em (0, 0)
+X 0 0 0 
+0 0 1 1 
 1 0 1 0 
+1 0 1 1 
 
 
-Mov Atual 1: (2, 2)
-Move para (2, 1)
-1 1 0 1 
-1 0 0 0 
+Mov Atual 1: (0, 0)
+Colisão com parede ao tentar mover para (-1, 0)
+Move para (0, 1)
 0 X 0 0 
+0 0 1 1 
 1 0 1 0 
+1 0 1 1 
 
 
-Mov Atual 2: (2, 1)
-Limpou em (2, 1)
-1 1 0 1 
-1 0 0 0 
-0 X 0 0 
-1 0 1 0 
-
-
-Mov Atual 3: (2, 1)
+Mov Atual 2: (0, 1)
 Move para (1, 1)
-1 1 0 1 
-1 X 0 0 
 0 0 0 0 
+0 X 1 1 
 1 0 1 0 
+1 0 1 1 
 
 
-Mov Atual 4: (1, 1)
-Move para (2, 1)
-1 1 0 1 
-1 0 0 0 
+Mov Atual 3: (1, 1)
+Move para (1, 0)
+0 0 0 0 
+X 0 1 1 
+1 0 1 0 
+1 0 1 1 
+
+
+Mov Atual 4: (1, 0)
+Move para (0, 0)
+X 0 0 0 
+0 0 1 1 
+1 0 1 0 
+1 0 1 1 
+
+
+Mov Atual 5: (0, 0)
+Move para (0, 1)
 0 X 0 0 
+0 0 1 1 
 1 0 1 0 
+1 0 1 1 
 
 
-Mov Atual 5: (2, 1)
-Move para (2, 2)
-1 1 0 1 
-1 0 0 0 
-0 0 X 0 
-1 0 1 0 
-
-
-Mov Atual 6: (2, 2)
-Move para (2, 1)
-1 1 0 1 
-1 0 0 0 
-0 X 0 0 
-1 0 1 0 
-
-
-Mov Atual 7: (2, 1)
+Mov Atual 6: (0, 1)
 Move para (1, 1)
-1 1 0 1 
-1 X 0 0 
 0 0 0 0 
+0 X 1 1 
 1 0 1 0 
+1 0 1 1 
 
 
-Mov Atual 8: (1, 1)
-Move para (2, 1)
-1 1 0 1 
-1 0 0 0 
+Mov Atual 7: (1, 1)
+Move para (1, 0)
+0 0 0 0 
+X 0 1 1 
+1 0 1 0 
+1 0 1 1 
+
+
+Mov Atual 8: (1, 0)
+Move para (0, 0)
+X 0 0 0 
+0 0 1 1 
+1 0 1 0 
+1 0 1 1 
+
+
+Mov Atual 9: (0, 0)
+Move para (0, 1)
 0 X 0 0 
+0 0 1 1 
 1 0 1 0 
+1 0 1 1 
 
 
-Mov Atual 9: (2, 1)
-Move para (2, 2)
-1 1 0 1 
-1 0 0 0 
-0 0 X 0 
-1 0 1 0 
-
-
-Mov Atual 10: (2, 2)
-Move para (2, 1)
-1 1 0 1 
-1 0 0 0 
-0 X 0 0 
-1 0 1 0 
-
-
-Mov Atual 11: (2, 1)
+Mov Atual 10: (0, 1)
 Move para (1, 1)
-1 1 0 1 
-1 X 0 0 
 0 0 0 0 
+0 X 1 1 
 1 0 1 0 
+1 0 1 1 
 
 
-Mov Atual 12: (1, 1)
-Move para (2, 1)
-1 1 0 1 
-1 0 0 0 
+Mov Atual 11: (1, 1)
+Move para (1, 0)
+0 0 0 0 
+X 0 1 1 
+1 0 1 0 
+1 0 1 1 
+
+
+Mov Atual 12: (1, 0)
+Move para (0, 0)
+X 0 0 0 
+0 0 1 1 
+1 0 1 0 
+1 0 1 1 
+
+
+Mov Atual 13: (0, 0)
+Move para (0, 1)
 0 X 0 0 
+0 0 1 1 
 1 0 1 0 
+1 0 1 1 
 
 
-Mov Atual 13: (2, 1)
-Move para (2, 2)
-1 1 0 1 
-1 0 0 0 
-0 0 X 0 
-1 0 1 0 
-
-
-Mov Atual 14: (2, 2)
-Move para (2, 1)
-1 1 0 1 
-1 0 0 0 
-0 X 0 0 
-1 0 1 0 
-
-
-Mov Atual 15: (2, 1)
+Mov Atual 14: (0, 1)
 Move para (1, 1)
-1 1 0 1 
-1 X 0 0 
 0 0 0 0 
+0 X 1 1 
 1 0 1 0 
+1 0 1 1 
 
 
-Mov Atual 16: (1, 1)
-Move para (2, 1)
-1 1 0 1 
-1 0 0 0 
+Mov Atual 15: (1, 1)
+Move para (1, 0)
+0 0 0 0 
+X 0 1 1 
+1 0 1 0 
+1 0 1 1 
+
+
+Mov Atual 16: (1, 0)
+Move para (0, 0)
+X 0 0 0 
+0 0 1 1 
+1 0 1 0 
+1 0 1 1 
+
+
+Mov Atual 17: (0, 0)
+Move para (0, 1)
 0 X 0 0 
+0 0 1 1 
 1 0 1 0 
+1 0 1 1 
 
 
-Mov Atual 17: (2, 1)
-Move para (2, 2)
-1 1 0 1 
-1 0 0 0 
-0 0 X 0 
-1 0 1 0 
-
-
-Mov Atual 18: (2, 2)
-Move para (2, 1)
-1 1 0 1 
-1 0 0 0 
-0 X 0 0 
-1 0 1 0 
-
-
-Mov Atual 19: (2, 1)
+Mov Atual 18: (0, 1)
 Move para (1, 1)
-1 1 0 1 
-1 X 0 0 
 0 0 0 0 
+0 X 1 1 
 1 0 1 0 
+1 0 1 1 
 
 
-Mov Atual 20: (1, 1)
+Mov Atual 19: (1, 1)
+Move para (1, 0)
+0 0 0 0 
+X 0 1 1 
+1 0 1 0 
+1 0 1 1 
+
+
+Mov Atual 20: (1, 0)
