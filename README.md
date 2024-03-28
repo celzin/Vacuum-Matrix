@@ -52,9 +52,9 @@ Implemente um agente inteligente para o mundo do aspirador de pó no qual o agen
     - Configurações: 16 quadrados sujos, 12 quadrados sujos, 8 quadrados sujos e 4 quadrados sujos.
   
   9. Registre a pontuação do Aspirador:
-    - +3 pontos para cada ambiente limpo;
-    - -1 ponto para cada movimento;
-    - -20 pontos para cada quadrado sujo remanescente após o término da limpeza;
+      - ganha 3 pontos para cada ambiente limpo;
+      - perde 1 ponto para cada movimento;
+      - perde 20 pontos para cada quadrado sujo remanescente após o término da limpeza;
 
   10. O Critério de parada do agente deve ser definido pelo aluno.
 
@@ -66,45 +66,74 @@ A intenção global do problema não é encontrar uma saída, mas sim, tentar de
 # 💡 Solução do Problema 
 
 <div align="justify">
-	
 
+O agente inteligente é projetado para operar em um ambiente simulado, enfrentando desafios de navegação e limpeza com uma abordagem que mescla aleatoriedade e memória de curto prazo. Abaixo, será discutida a descrição dessa estratégia.
 
 </div>
 
-**Política de Balanceamento**:
+## Componentes Principais
 
+- **`Agent`**: Opera com lógica reativa para navegar e limpar o ambiente baseado em sua percepção imediata e uma memória curta de ações passadas.
+- **`Environment`**: Define o espaço de atuação do agente, gerando configurações aleatórias de sujeira em uma matriz NxN.
+- **`Utility`**: Fornece suporte para execução do agente e geração de relatórios, simplificando o fluxo principal de atividades.
+
+## Estratégias Implementadas
+
+- **Posicionamento Aleatório e Ação Inicial**: O agente é colocado aleatoriamente no ambiente e imediatamente verifica e age sobre sujeira na posição inicial.
+- **Movimentação no meio da matriz:** O agente se move de forma aleatória, escolhendo entre quatro direções: cima, baixo, esquerda e direita. Essa abordagem visa cobrir o ambiente de maneira eficaz, evitando padrões previsíveis.
+- **Após colidir com uma parede:** O agente recorda seus últimos três movimentos para evitar repetições imediatas, especialmente útil após colidir com uma parede. Essa memória ajuda a diversificar a exploração sem cair em ciclos.
 
 # 🔬 Experimentação 
 
 <div align="justify">
 
-- ...
+Para uma análise abrangente, a experimentação seguiu os seguintes passos:
 
-- ...
+- **Configurações Testadas**: As execuções foram divididas em quatro configurações de sujeira dentro do ambiente, especificamente com 16, 12, 8 e 4 quadrados sujos, respectivamente
+
+- **Repetições**: Para cada uma dessas configurações, realizou-se 10 repetições, garantindo que os resultados refletissem a variabilidade do comportamento do agente devido à sua inicialização e movimentos aleatórios.
 
 </div>
 
-<p align="center">
+
+## Análise dos Resultados
+
+<div align="justify">
+
+A tabela a seguir resume os resultados obtidos após 10 repetições com critério de parada de 34 movimentos para cada configuração de sujeira no ambiente:
+
+| Configuração de Sujeira | Pior Resultado | Melhor Resultado | Média  | Desvio Padrão |
+|-------------------------|------------------|----------------|--------|---------------|
+| 25% Sujos                | -112             | -54            | -79.3  | 15.7          |
+| 50% Sujos                | -192             | -100           | -138.4 | 26.9          |
+| 75% Sujos                | -249             | -88            | -163.9 | 55.2          |
+| 100% Sujos               | -260             | 191            | -166.0 | 134.7         |
+
+
+Os resultados destacam a variação na performance do agente com diferentes níveis de sujeira no ambiente. Aumentos na quantidade de sujeira tendem a dificultar a tarefa do agente, refletido nos valores de pontuação mais baixos e na maior variação (desvio padrão) entre os resultados.
+
+</div>
+
+<!-- <p align="center">
 <img src="imgs/teoria.png" width="600"/> 
 </p>
 <p align="center">
 <em>Imagem 1: Parte do `output.data` gerado a partir das entradas para análise. </em>
-</p>
+</p> -->
 
 # 🎯 Conclusão 
 
 <div align="justify">
 
-...
+A solução alcançou o objetivo de criar um agente capaz de limpar o ambiente de certa forma eficiente, porém com suas devidas limitações. Observa-se que o agente tem desempenhos variáveis, refletidos nas pontuações obtidas.
 
-</div>
+- **Variação no Desempenho**: O agente mostrou capacidade de lidar com ambientes variados, mas os resultados indicam uma clara variação no desempenho. O aumento da complexidade do ambiente, com mais sujeira, leva a pontuações mais baixas, demonstrando os desafios adicionais que o agente enfrenta.
 
-## Desfecho e Custos
+- **Desafios e Limitações**: A estratégia de movimento do agente, embora efetiva em certas situações, encontra limitações conforme a complexidade do ambiente aumenta. Isso é evidenciado pelos resultados mais baixos (mais negativos) em ambientes com maior percentual de sujeira.
 
-<div align="justify">
-	
+- **Oportunidades para Melhorias**: Os experimentos sugerem áreas para futuras melhorias, especialmente na otimização da estratégia de movimento e na eficiência da limpeza em ambientes mais desafiadores.
 
-
+Em suma, a experimentação revelou tanto o potencial quanto as limitações da abordagem atual. Embora o agente demonstre uma capacidade básica de navegação e limpeza, há uma certa necessidade de aprimoramento, visando aumentar a eficiência e adaptabilidade em diversos cenários de limpeza.
 </div>
 
 # 🔄 Compilação e Execução 
@@ -113,12 +142,18 @@ A intenção global do problema não é encontrar uma saída, mas sim, tentar de
 
 <div align="justify">
 
-É também essencial que o usuário inclua um arquivo denominado `input.data` (dentre a coleção de textos inserida na pasta (`dataset`), contendo uma _'matriz de percurso'_.
+É essencial que o usuário inclua um arquivo denominado `input.data` (dentre a coleção de textos inserida na pasta (`dataset`), contendo uma _'matriz de percurso'_.
 
- - ...
- 
- - ...
+```C++
+4 4
 
+0 0 0 1 
+1 1 1 0 
+0 1 0 1 
+0 0 1 1 
+```
+
+Contendo em sua primeira linha os valores `NxN` do tamanho da matriz e em seguida a matriz, onde `0` representam quadrados limpos e `1` os quadrados sujos.
 </div>
 
 ## 3. Arquivo de saída (`output.data`)
