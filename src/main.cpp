@@ -7,15 +7,16 @@
 #include <string>
 
 int main() {
-    GenerateInputData();
+    // Gera dados de entrada (matriz de ambiente)
+    GenerateInputData();  // Caso queira testar com a mesma matriz,comente esta função
     try {
         Environment environment("dataset/input.data");
         Agent agent(environment);
         std::vector<std::string> actions_log;
-        const int max_moves = 20;
-
+        // Define o critério de parada, exemplo 32 movimentos
+        const int max_moves = 32;
+        // Executa o agente no ambiente, registrando suas ações
         ExecuteAgent(environment, agent, actions_log, max_moves);
-
         std::cout << "Execução finalizada. Verifique os arquivos de saída." << std::endl;
     }
     catch (const std::exception &e) {

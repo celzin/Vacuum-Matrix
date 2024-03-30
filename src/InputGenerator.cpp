@@ -1,7 +1,7 @@
 #include "include/InputGenerator.hpp"
 
 const int N = 4; // Tamanho da matriz NxN
-const float DIRT_PERCENTAGE = 1.0; // 50% dos quadrados sujos
+const float DIRT_PERCENTAGE = 0.5; // 50% dos quadrados sujos
 
 void GenerateInputData() {
     int totalSquares = N * N;
@@ -9,7 +9,7 @@ void GenerateInputData() {
 
     std::vector<std::vector<int>> matrix(N, std::vector<int>(N, 0));
 
-    std::srand(std::time(nullptr)); // Seed para geração de números aleatórios
+    std::srand(std::time(nullptr)); // Geração de números aleatórios
 
     // Preenchendo a matriz com sujeira de forma aleatória
     while (dirtySquares > 0) {

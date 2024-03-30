@@ -102,6 +102,11 @@ Para uma análise abrangente, a experimentação seguiu os seguintes passos:
 
 A tabela a seguir resume os resultados obtidos após 10 repetições com critério de parada de 34 movimentos para cada configuração de sujeira no ambiente:
 
+</div>
+
+
+<div align="center">
+
 | Configuração de Sujeira | Pior Resultado | Melhor Resultado | Média  | Desvio Padrão |
 |-------------------------|------------------|----------------|--------|---------------|
 | 25% Sujos                | -112             | -54            | -79.3  | 15.7          |
@@ -109,6 +114,9 @@ A tabela a seguir resume os resultados obtidos após 10 repetições com critér
 | 75% Sujos                | -249             | -88            | -163.9 | 55.2          |
 | 100% Sujos               | -260             | 191            | -166.0 | 134.7         |
 
+</div>
+
+<div align="justify">
 
 Os resultados destacam a variação na performance do agente com diferentes níveis de sujeira no ambiente. Aumentos na quantidade de sujeira tendem a dificultar a tarefa do agente, refletido nos valores de pontuação mais baixos e na maior variação (desvio padrão) entre os resultados.
 

@@ -6,15 +6,16 @@ void ExecuteAgent(Environment &environment, Agent &agent, std::vector<std::strin
     int total_moves = 0;
     int cleaned_squares = 0;
     int squares_explored = 0;
+    // Inicializa contadores e registra a ação inicial se o agente começar em um quadrado sujo
     std::vector<std::vector<bool>> explored(environment.GetSize(), std::vector<bool>(environment.GetSize(), false));
 
-    // Verifica e contabiliza a limpeza inicial se o agente começar em uma posição suja.
+    // Verifica e contabiliza a limpeza inicial se o agente começar em uma posição suja
     if (environment.IsDirty(agent.GetCurrentX(), agent.GetCurrentY())) {
         cleaned_squares++;
     }
 
     for (int step = 0; step < max_moves; ++step) {
-        agent.Act(actions_log);
+        agent.Act(actions_log); // Executa uma ação do agente
         total_moves++;
 
         int current_x = agent.GetCurrentX();
@@ -22,6 +23,7 @@ void ExecuteAgent(Environment &environment, Agent &agent, std::vector<std::strin
         std::string currentState = agent.LogCurrentState();
         actions_log.push_back(currentState);
 
+        // Atualiza contadores e registra a ação
         if (!explored[current_x][current_y]) {
             squares_explored++;
             explored[current_x][current_y] = true;
@@ -31,7 +33,7 @@ void ExecuteAgent(Environment &environment, Agent &agent, std::vector<std::strin
                 agent.UpdateScore(3);
             }
         }
-
+        // Atualiza a pontuação do agente por movimento
         agent.UpdateScore(-1);
         actions_log.push_back("Mov Atual " + std::to_string(total_moves) + ": (" + std::to_string(current_x) + ", " + std::to_string(current_y) + ")");
     }
@@ -39,7 +41,7 @@ void ExecuteAgent(Environment &environment, Agent &agent, std::vector<std::strin
     GenerateReports(actions_log, environment, agent, total_moves, cleaned_squares, squares_explored);
 }
 
-
+// Cria o relatorio a partir das informações fornecidas pela função de execução do agente
 void GenerateReports(const std::vector<std::string> &actions_log, const Environment &environment, const Agent &agent, int total_moves, int cleaned_squares, int squares_explored) {
     std::ofstream output_file("dataset/output.data");
     for (const auto &action : actions_log) {

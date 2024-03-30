@@ -29,8 +29,10 @@ void Agent::UpdateScore(int points) {
     score += points;
 }
 
+// Define o comportamento do agente em cada movimento
 void Agent::Act(std::vector<std::string> &log) {
     std::stringstream logEntry;
+    // Se a posição atual está suja, o agente limpa
     if (environment.IsDirty(current_x, current_y)) {
         CleanCurrentPosition();
         logEntry << "Limpou em (" << current_x << ", " << current_y << ")";
@@ -107,6 +109,6 @@ std::string Agent::LogCurrentState() const {
         }
         ss << "\n";
     }
-    ss << "\n"; // Espaço extra entre estados para melhor visualização
+    ss << "\n";
     return ss.str();
 }
