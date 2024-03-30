@@ -100,7 +100,7 @@ Para uma análise abrangente, a experimentação seguiu os seguintes passos:
 
 <div align="justify">
 
-A tabela a seguir resume os resultados obtidos após 10 repetições com critério de parada de 34 movimentos para cada configuração de sujeira no ambiente:
+A tabela a seguir resume os resultados obtidos após 10 repetições com critério de parada de 32 movimentos para cada configuração de sujeira no ambiente:
 
 </div>
 
