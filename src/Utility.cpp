@@ -35,7 +35,7 @@ void ExecuteAgent(Environment &environment, Agent &agent, std::vector<std::strin
         }
         // Atualiza a pontuação do agente por movimento
         agent.UpdateScore(-1);
-        actions_log.push_back("Mov Atual " + std::to_string(total_moves) + ": (" + std::to_string(current_x) + ", " + std::to_string(current_y) + ")");
+        // actions_log.push_back("Mov Atual " + std::to_string(total_moves) + ": (" + std::to_string(current_x) + ", " + std::to_string(current_y) + ")");
     }
 
     GenerateReports(actions_log, environment, agent, total_moves, cleaned_squares, squares_explored);
