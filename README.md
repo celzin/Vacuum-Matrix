@@ -53,7 +53,7 @@ Para começar a simulação, é essencial que o usuário gere um arquivo de entr
 <img src="imgs/geneMain.png" width="500"/> 
 </p>
 <p align="center">
-<em>Figura 2: Imagem exemplificativa os possíveis ajustes na criação do ambiente matricial. </em>
+<em>Figura 2: Imagem exemplificativa dos possíveis ajustes na criação do ambiente matricial. </em>
 </p>
 
 <div align="justify">
