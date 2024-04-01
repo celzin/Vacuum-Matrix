@@ -43,7 +43,7 @@ Este trabalho apresenta o desenvolvimento de um agente inteligente aspirador rob
 <img src="imgs/input.png" width="400"/> 
 </p>
 <p align="center">
-<em>Figura 2: Imagem ilustrativa do arquivo `input.data` que deve ser inserido ou alterado. </em>
+<em>Figura 2: Imagem exemplificativa do arquivo `input.data` que deve ser inserido ou alterado. </em>
 </p>
 
 Contendo em sua primeira linha os valores `NxN` do tamanho da matriz e em seguida a matriz, onde `0` representam quadrados limpos e `1` os quadrados sujos.
@@ -58,14 +58,14 @@ Ao final de sua execução, o programa gera um arquivo (`output.data`) dentro da
 <img src="imgs/output1.png" width="500"/> 
 </p>
 <p align="center">
-<em>Figura 3: Imagem ilustrativa do arquivo `output.data` gerado após a compilação do programa. </em>
+<em>Figura 3: Imagem exemplificativa do arquivo `output.data` gerado após a compilação do programa. </em>
 </p>
 
 <p align="center">
 <img src="imgs/relatorio1.png" width="450"/> 
 </p>
 <p align="center">
-<em>Figura 4: Imagem ilustrativa do arquivo `relatorio.data` gerado após a compilação do programa. </em>
+<em>Figura 4: Imagem exemplificativa do arquivo `relatorio.data` gerado após a compilação do programa. </em>
 </p>
 
 </div>
