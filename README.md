@@ -5,11 +5,11 @@
 </div>
 
 <br>
-<!-- <h1 align="center">
+<h1 align="center">
     <a>
         <img alt="Banner" title="#Banner" style="object-fit: fill; width: 961px, height:200px;" src="imgs/github-header-image.png"/>
     </a>
-</h1> -->
+</h1>
 
 ## 🗂️ Estrutura do Repositório
 
@@ -21,7 +21,7 @@
 ## 📝 Resumo
 
 <p align="center">
-<img src="imgs/main2.png" width="450"/> 
+<img src="imgs/move.png" width="800"/> 
 </p>
 <p align="center">
 <em>Figura 1: Imagem ilustrativa do funcionamento do agente reativo simples implementado. </em>
