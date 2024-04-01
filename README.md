@@ -120,7 +120,7 @@ Por fim, esse programa possui um arquivo (`Makefile`) e um (`CMakeLists`), os qu
   </tr>
 </table>
 
-# 📞 Contato
+## 📞 Contato
 
 <table align="center">
   <tr>
