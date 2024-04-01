@@ -78,14 +78,14 @@ Ao final de sua execução, o programa gera um arquivo (`output.data`) dentro da
 <img src="imgs/output1.png" width="500"/> 
 </p>
 <p align="center">
-<em>Figura 3: Imagem exemplificativa do arquivo `output.data` gerado após a compilação do programa. </em>
+<em>Figura 4: Imagem exemplificativa do arquivo `output.data` gerado após a compilação do programa. </em>
 </p>
 
 <p align="center">
 <img src="imgs/relatorio1.png" width="450"/> 
 </p>
 <p align="center">
-<em>Figura 4: Imagem exemplificativa do arquivo `relatorio.data` gerado após a compilação do programa. </em>
+<em>Figura 5: Imagem exemplificativa do arquivo `relatorio.data` gerado após a compilação do programa. </em>
 </p>
 
 </div>
