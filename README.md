@@ -37,16 +37,36 @@ Este trabalho apresenta o desenvolvimento de um agente inteligente aspirador rob
 
 <div align="justify">
 
-É essencial que o usuário inclua um arquivo denominado `input.data`, dentre a coleção de arquivos inserida na pasta (`dataset`), contendo uma 'matriz de percurso', seguindo o seguinte formato:
+É  que o usuário inclua um arquivo denominado `input.data`, dentre a coleção de arquivos inserida na pasta `dataset`, contendo uma 'matriz de percurso', seguindo o seguinte formato:
+
+Para começar a simulação, é essencial que o usuário gere um arquivo de entrada chamado `input.data` que configura o estado inicial do ambiente de simulação. Este arquivo é criado de forma automática pela função `GenerateInputData`, contendo seus parâmetros ajustáveis de acordo com o usuário como mostram as figura à seguir.
+
+</div>
+
+<p align="center">
+<img src="imgs/geneInput.png" width="500"/> 
+</p>
+<p align="center">
+</p>
+
+<p align="center">
+<img src="imgs/geneMain.png" width="500"/> 
+</p>
+<p align="center">
+<em>Figura 2: Imagem exemplificativa os possíveis ajustes na criação do ambiente matricial. </em>
+</p>
+
+<div align="justify">
+
+Assim, a estrutura do arquivo gerado seguirá o formato demonstrado na figura adiante. Contendo em sua primeira linha os valores NxN do tamanho da matriz e em seguida a matriz, onde 0 representam quadrados limpos e 1 os quadrados sujos.
 
 <p align="center">
 <img src="imgs/input.png" width="400"/> 
 </p>
 <p align="center">
-<em>Figura 2: Imagem exemplificativa do arquivo `input.data` que deve ser inserido ou alterado. </em>
+<em>Figura 3: Imagem exemplificativa do arquivo `input.data` que deve ser inserido ou alterado. </em>
 </p>
 
-Contendo em sua primeira linha os valores `NxN` do tamanho da matriz e em seguida a matriz, onde `0` representam quadrados limpos e `1` os quadrados sujos.
 </div>
 
 ### 2. Arquivos de saída (`output.data` e `relatorio.data`)
