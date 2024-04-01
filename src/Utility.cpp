@@ -43,6 +43,7 @@ void ExecuteAgent(Environment &environment, Agent &agent, std::vector<std::strin
 
 // Cria o relatorio a partir das informações fornecidas pela função de execução do agente
 void GenerateReports(const std::vector<std::string> &actions_log, const Environment &environment, const Agent &agent, int total_moves, int cleaned_squares, int squares_explored) {
+    // Gera o 'output.data' com todo o percurso detalhado do agente
     std::ofstream output_file("dataset/output.data");
     for (const auto &action : actions_log) {
         output_file << action << "\n";
@@ -55,6 +56,7 @@ void GenerateReports(const std::vector<std::string> &actions_log, const Environm
     int clean_score = cleaned_squares * 3;
     int final_score = clean_score - points_lost_due_to_moves - points_lost_due_to_dirt;
 
+    // Gera o 'relatorio.data' com suas devidas informações de desempenho do agente
     std::ofstream report_file("dataset/relatorio.data");
     report_file << "A) Casas percorridas: " << squares_explored << "\n";
     report_file << "B) Casas não exploradas: " << (environment.GetSize() * environment.GetSize()) - squares_explored << "\n";
