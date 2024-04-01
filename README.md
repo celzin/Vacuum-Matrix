@@ -55,14 +55,14 @@ Contendo em sua primeira linha os valores `NxN` do tamanho da matriz e em seguid
 Ao final de sua execução, o programa gera um arquivo (`output.data`) dentro da pasta (`dataset`), o qual contém todo o percurso do agente ao longo de sua execuação e outro arquivo (`relatorio.data`), contendo o desempenho do agente. Certifique-se de verificá-los ao final da compilação.
 
 <p align="center">
-<img src="imgs/output1.png" width="400"/> 
+<img src="imgs/output1.png" width="500"/> 
 </p>
 <p align="center">
 <em>Figura 3: Imagem ilustrativa do arquivo `output.data` gerado após a compilação do programa. </em>
 </p>
 
 <p align="center">
-<img src="imgs/relatorio1.png" width="400"/> 
+<img src="imgs/relatorio1.png" width="450"/> 
 </p>
 <p align="center">
 <em>Figura 4: Imagem ilustrativa do arquivo `relatorio.data` gerado após a compilação do programa. </em>
