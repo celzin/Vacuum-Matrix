@@ -13,7 +13,7 @@
 
 ## 🗂️ Estrutura do Repositório
 
-- `article/`: Diretório contendo o relatório em formato LaTeX.
+- `article/`: Diretório contendo o relatório do projeto em formato LaTeX.
 - `src/`: Diretório com os scripts C++ usados para gerar os percursos do agente e realizar as análises.
 - `dataset/`: Diretório com os conjuntos de `output.data` e `relatório.data` gerados nas exṕlorações.
 - `imgs/`: Diretório com as imagens utilizadas no relatório.
